@@ -1223,6 +1223,8 @@ public class NavigationActivity extends Activity
                         (NavigationViewInfoParcelable)realHistory.getItem();
                 int viewId = info.getId();
                 NavigationView view = getNavigationView(viewId);
+                // Selected items must not be restored from on history navigation
+                info.setSelectedFiles(view.getSelectedFiles());
                 view.onRestoreState(info);
 
             } else if (realHistory.getItem() instanceof SearchInfoParcelable) {
